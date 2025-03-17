@@ -13,20 +13,25 @@
     <h1>Live Market Index Prices</h1>
 
     <!-- TradingView Widget -->
-    <div class="tradingview-widget-container">
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js">
-        {
-            "symbols": [
-                { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" },
-                { "proName": "FOREXCOM:DJI", "title": "Dow Jones" },
-                { "proName": "FOREXCOM:IXIC", "title": "NASDAQ" }
-            ],
-            "colorTheme": "light",
-            "isTransparent": false,
-            "displayMode": "adaptive",
-            "locale": "en"
-        }
-        </script>
-    </div>
+   <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+</div>
+
+<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"></script>
+
+<script type="text/javascript">
+new TradingView.widget({
+    "symbols": [
+        { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" },
+        { "proName": "FOREXCOM:DJI", "title": "Dow Jones" },
+        { "proName": "FOREXCOM:IXIC", "title": "NASDAQ" }
+    ],
+    "colorTheme": "light",
+    "isTransparent": false,
+    "displayMode": "adaptive",
+    "locale": "en"
+});
+</script>
+
 </body>
 </html>
