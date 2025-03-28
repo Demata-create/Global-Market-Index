@@ -1,32 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Global Market Index</title>
-  <meta name="description" content="Check the global market index.">
-  <meta name="keywords" content="global market, market index, stocks, forex, commodities, indices">
-  <meta name="author" content="Demata-create">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f5f5f5;
-    }
-
-    iframe {
-      border: none;
-      width: 100%;
-      height: 100%;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Index Prices</title>
 </head>
 <body>
-  <iframe src="https://ssltsw.investing.com?lang=1&forex=1,2,3,5,7,9,10&commodities=8830,8836,8831,8849,8833,8862,8832&indices=175,166,172,27,179,170,174&stocks=345,346,347,348,349,350,352&tabs=1,2,3" title="Global Market Index" loading="lazy"></iframe>
+    <h1>Live Market Index Prices</h1>
+    <p><strong>S&P 500 Price:</strong> <span id="sp500">Loading...</span></p>
+
+    <script>
+        const apiKey = "ZRD1DJCIMCB8HEZ1";  // Replace with your Alpha Vantage API key
+        const symbol = "SPX";  // Symbol for S&P 500 Index
+
+        fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("sp500").innerText = "$" + data["Global Quote"]["05. price"];
+            })
+            .catch(error => console.error("Error fetching data:", error));
+    </script>
 </body>
 </html>
+
